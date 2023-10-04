@@ -24,8 +24,8 @@ client.on('voiceStateUpdate', async (oldState, newState) => {
 	if (!oldState.channelId && newState.channelId) {
 		try {
 			const guild = await client.guilds.fetch('336343716539400194');
-			const member = await guild.members.cache.get('125746463731875841');
-			const currentTime = new Date;
+			const member = await guild.members.fetch(newState.member.id);
+			const currentTime = new Date();
 			// Check if the member who joined is the target member
 			if (member.id === '125746463731875841') {
 				await member.setNickname(currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }).replace(/AM|PM/, 'gamer'));
