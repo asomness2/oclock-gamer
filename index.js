@@ -23,7 +23,7 @@ client.on('ready', () => {
 client.on('voiceStateUpdate', async (oldState, newState) => {
 	if (!oldState.channelId && newState.channelId) {
 		try {
-			const guild = await client.guilds.fetch();
+			const guild = await client.guilds.fetch('336343716539400194');
 			const member = await guild.members.fetch(newState.member.id);
 			const currentTime = new Date();
 			// Check if the member who joined is the target member
