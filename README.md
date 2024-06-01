@@ -1,2 +1,2 @@
 # oclock-gamer
-changes drake's name to the current time
+discord bot that changes a friend's name to the current time
