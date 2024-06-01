@@ -11,7 +11,7 @@ client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
 });
 
-// Log in to Discord with your client's token
+// Log in to Discord with your client's token set in /config.json
 client.login(token);
 
 // Set the client user's status
@@ -19,10 +19,11 @@ client.on('ready', () => {
 	client.user.setStatus('idle');
 });
 
-// change drake's name when he joins chat
+// Monitor all voice channels then change a member's nickname when they join any
 client.on('voiceStateUpdate', async (oldState, newState) => {
 	if (!oldState.channelId && newState.channelId) {
 		try {
+			// Check the server ID then check the member ID that joined voice
 			const guild = await client.guilds.fetch('336343716539400194');
 			const member = await guild.members.fetch(newState.member.id);
 			const currentTime = new Date();
